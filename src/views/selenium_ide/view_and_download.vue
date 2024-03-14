@@ -195,7 +195,7 @@ export default {
       this.deleteLoading = true
       const result = await this.$deleteFiles(this.$serverRoute.DELETE_ALLURES.route, (row ? [row] : this.multipleSelection).map(row => row.name))
       if (result) {
-        this.reports = result
+        this.reports = await this.$request(`${this.$serverRoute.REPORT_HISTORY.route}`)
       }
       this.deleteLoading = false
     },

@@ -117,14 +117,7 @@ Vue.prototype.$deleteFiles = async function(urlPath, filenames) {
           }
         })
       }
-      return await axios.get(`${this.$origin}${this.$serverRoute.REPORT_HISTORY.route}`).then(response => {
-        if (response.status === 200) {
-          return response.data
-        } else {
-          this.$message.error(`刪除失敗：${response.toString()}`)
-          return undefined
-        }
-      })
+      return true
     }
   }
   return undefined

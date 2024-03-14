@@ -174,7 +174,7 @@ export default {
     async handleDelete() {
       const result = await this.$deleteFiles(this.$serverRoute.DELETE_SIDE_FILES.route, Object.entries(this.currentAllSide).filter(row => row[1] === false).map(row => row[0]))
       if (result) {
-        this.currentAllSide = result
+        this.currentAllSide = await this.$request(this.$serverRoute.CURRENT_ALL_SIDE.route)
       }
     },
     isSide(file) {
